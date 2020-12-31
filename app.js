@@ -76,6 +76,7 @@ const writeToDirectory = (path, key, value) => {
         `${path}/data/data.json`,
         JSON.stringify(newDataStore, null, 2)
       );
+      console.log('Created an entry in the data store');
     }
   });
 };
@@ -106,3 +107,5 @@ module.exports = {
 };
 
 // create('test2', 25, 10000);
+// read('test2');
+// deleteKey('test2');
