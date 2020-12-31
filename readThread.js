@@ -20,10 +20,7 @@ const read = (params) => {
     ans = parseInt(localDataStore[key].value);
   } else {
     deleteKey(key);
-    console.log('Entering the Expired Condition');
-    // deleteKey(key);
     ans = 'Session Expired!!';
-
     process.exit();
   }
 };
