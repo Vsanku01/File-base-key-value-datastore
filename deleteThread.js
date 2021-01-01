@@ -24,7 +24,7 @@ if (fs.existsSync('./utils.json')) {
       );
       ans = 'Deleted the Entry';
     } else {
-      ans = 'Key not present!';
+      ans = 'Key not present in the data store';
     }
   };
 

@@ -10,7 +10,7 @@ let dataStorePath = '';
 const create = (key, value, timeout, path = '') => {
   value = {
     value,
-    timeout: moment().add(timeout, 'seconds').format('hh:mma'),
+    timeout: timeout ? moment().add(timeout, 'seconds').format('hh:mma') : NaN,
   };
   if (path === '') {
     // Initialize the optional path.
@@ -23,7 +23,6 @@ const create = (key, value, timeout, path = '') => {
         // Check if the paths exists in the filesystem
         // Then create a directory there and write to the file
         dataStorePath = path;
-        console.log('Updating path', dataStorePath);
         writeToDirectory(path, key, value);
       } else {
         console.log('Path does not exist');
@@ -82,15 +81,17 @@ const writeToDirectory = (path, key, value) => {
 };
 
 const deleteKey = (key) => {
+  // Transferring the delete operation to separate thread other than main thread.
   const deleteThread = new Worker(__dirname + '/deleteThread.js');
   deleteThread.on('message', async (result) => {
-    console.log(`Processed function on seperate thread: ${result}`);
+    console.log(`${result}`);
     process.exit();
   });
   deleteThread.postMessage([key, dataStorePath]);
 };
 
 const read = (key) => {
+  // Transferring the read operation to separate thread other than main thread.
   const createThread = new Worker(__dirname + '/readThread.js');
   createThread.on('message', async (result) => {
     let answer = await result;
@@ -106,6 +107,9 @@ module.exports = {
   deleteKey,
 };
 
-// create('test2', 25, 10000);
-// read('test2');
-// deleteKey('test2');
+// create('test2', 25, null, '/Users/svishnudarshan/Downloads/my-unsplash-master');
+// create('test23', 2);
+// create('final', { name: 'John', age: 30, car: null });
+
+// read('final2');
+// deleteKey('fin');
