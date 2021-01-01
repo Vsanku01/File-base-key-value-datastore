@@ -10,7 +10,7 @@ npm link file-based-key-value-datastore
 ```
 yarn link file-based-key-value-datastore
 ```
-
+`
 ## Use it
 Download the repo and run `sudo npm link` this links the module to your local filesystem.Then you can execute `npm link file-based-key-value-datastore` and import the following functions
 
