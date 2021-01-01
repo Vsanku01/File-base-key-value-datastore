@@ -4,7 +4,7 @@ File-based key-value data store that supports the basic CRD (create, read, and d
 
 ### NPM
 ```
-npm install file-based-key-value-datastore --save
+npm install file-based-key-value-datastore
 ```
 ### Yarn
 ```
