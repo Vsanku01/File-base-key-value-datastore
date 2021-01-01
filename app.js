@@ -8,28 +8,34 @@ let dataStore = {};
 let dataStorePath = '';
 
 const create = (key, value, timeout, path = '') => {
-  value = {
-    value,
-    timeout: timeout ? moment().add(timeout, 'seconds').format('hh:mma') : NaN,
-  };
-  if (path === '') {
-    // Initialize the optional path.
-    writeToDirectory('./', key, value);
-    dataStorePath = './';
-  } else {
-    // If the client sends the path
-    try {
-      if (fs.existsSync(path?.toString())) {
-        // Check if the paths exists in the filesystem
-        // Then create a directory there and write to the file
-        dataStorePath = path;
-        writeToDirectory(path, key, value);
-      } else {
-        console.log('Path does not exist');
+  if (typeof key === 'string' && value !== undefined) {
+    value = {
+      value,
+      timeout: timeout
+        ? moment().add(timeout, 'seconds').format('hh:mma')
+        : NaN,
+    };
+    if (path === '') {
+      // Initialize the optional path.
+      writeToDirectory('./', key, value);
+      dataStorePath = './';
+    } else {
+      // If the client sends the path
+      try {
+        if (fs.existsSync(path?.toString())) {
+          // Check if the paths exists in the filesystem
+          // Then create a directory there and write to the file
+          dataStorePath = path;
+          writeToDirectory(path, key, value);
+        } else {
+          console.log('Path does not exist');
+        }
+      } catch (error) {
+        console.log('An error occurred!');
       }
-    } catch (error) {
-      console.log('An error occurred!');
     }
+  } else {
+    console.log('invalid parameters');
   }
 };
 
@@ -106,10 +112,3 @@ module.exports = {
   read,
   deleteKey,
 };
-
-// create('test2', 25, null, '/Users/svishnudarshan/Downloads/my-unsplash-master');
-// create('test23', 2);
-// create('final', { name: 'John', age: 30, car: null });
-
-// read('final2');
-// deleteKey('fin');
