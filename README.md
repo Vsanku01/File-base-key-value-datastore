@@ -12,7 +12,7 @@ yarn link file-based-key-value-datastore
 ```
 
 ## Use it
-Download the repo and run `sudo npm link` this link the module to your local filesystem.Then you can execute `npm link file-based-key-value-datastore` and import the following functions
+Download the repo and run `sudo npm link` this links the module to your local filesystem.Then you can execute `npm link file-based-key-value-datastore` and import the following functions
 
 # Params
 `create` accepts `key,value,timeout,path` as parameters.
