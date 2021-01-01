@@ -3,8 +3,6 @@ const moment = require('moment');
 const path = require('path');
 const jsonSize = require('json-size');
 const { Worker } = require('worker_threads');
-require('./readThread');
-require('./deleteThread');
 
 let dataStore = {};
 let dataStorePath = '';

@@ -4,14 +4,17 @@ File-based key-value data store that supports the basic CRD (create, read, and d
 
 ### NPM
 ```
-npm install file-based-key-value-datastore
+npm link file-based-key-value-datastore
 ```
 ### Yarn
 ```
-yarn add file-based-key-value-datastore
+yarn link file-based-key-value-datastore
 ```
 
 ## Use it
+Download the repo and run `sudo npm link` this link the module to your local filesystem.Then you can execute `npm link file-based-key-value-datastore` and import the following functions
+
+# Params
 `create` accepts `key,value,timeout,path` as parameters.
 `read` accepts a `key` as parameter and returns the result in JSON format.
 `delete` accepts a `key` as parameter.
