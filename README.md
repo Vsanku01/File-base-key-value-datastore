@@ -31,8 +31,8 @@ create('database', 'nodejs', null, '/Users/user/Downloads/target-folder');
 create('database', 'nodejs', 10000);
 
 // Read from the Data Store
-read('test2');
+read('database');
 
 // Delete entry from Data Store
-deleteKey('test2');
+deleteKey('database');
 ```
