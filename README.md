@@ -2,15 +2,6 @@
 
 File-based key-value data store that supports the basic CRD (create, read, and delete) operations. The data store is thread safe and can receive multiple queries at a time.
 
-### NPM
-```
-npm link file-based-key-value-datastore
-```
-### Yarn
-```
-yarn link file-based-key-value-datastore
-```
-`
 ## Use it
 Download the repo and run `sudo npm link` this links the module to your local filesystem.Then you can execute `npm link file-based-key-value-datastore` and import the following functions
 
