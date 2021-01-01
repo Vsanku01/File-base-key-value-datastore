@@ -22,7 +22,7 @@ const { create, read, deleteKey } = require('file-based-key-value-datastore');
 // create(key,value,timeout,path)
 create('database', 'nodejs'); 
 
-create('student', { name: 'John', age: 30, brach: 'cse' });
+create('student', { name: 'John', age: 30, branch: 'cse' });
 
 // Using specified path for data store.
 create('database', 'nodejs', null, '/Users/user/Downloads/target-folder');
